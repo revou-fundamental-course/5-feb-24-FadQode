@@ -6,6 +6,9 @@ const reverseButton = document.getElementById("reverse");
 
 let calcStatus = "ctof";
 
+
+
+
 const intConvert = (input) => {
     return parseInt(input);
 }
@@ -23,6 +26,7 @@ const intCheck = (inputCheck) => {
 const ctof = () => {
     const inputArea1 = document.getElementById("celsius");
     const outputArea = document.getElementById("farenheit");
+    const hasilArea = document.getElementById("hasil");
     const inputFound = inputArea1.value.trim();
     const numberInput = intConvert(inputFound);
 
@@ -33,12 +37,14 @@ const ctof = () => {
     }else{
         const fahrenheit = (numberInput * 9/5) + 32;
         outputArea.value = fahrenheit;  
+        hasilArea.value = "(" + numberInput + " * "+ "9/5) + 32 = "+ fahrenheit +"℉"
     }
 }
 
 const ftoc = () => {
     const inputArea1 = document.getElementById("celsius");
     const inputFound = inputArea1.value.trim();
+    const hasilArea = document.getElementById("hasil");
     const outputArea = document.getElementById("farenheit");
     const numberInput = intConvert(inputFound);
 
@@ -49,6 +55,7 @@ const ftoc = () => {
     }else{
         const fahrenheit = (numberInput - 32) * 5/9;
         outputArea.value = fahrenheit;  
+        hasilArea.value = "(" + numberInput + " - "+ "32) * 5/9 = "+ fahrenheit +"°C"
     }
 }
 
@@ -57,17 +64,25 @@ const reverse = () => {
     const outputLabel = document.getElementById("label2");
     const inputArea1 = document.getElementById("celsius");
     const outputArea = document.getElementById("farenheit");
+
+
     if(calcStatus == "ctof"){
         calcStatus = "ftoc";
         inputLabel.textContent = "Farenheit(F°)";
         outputLabel.textContent = "Celsius(C°)";
         inputArea1.value = outputArea.value;
         ftoc();
+    }else if(calcStatus == "ftoc"){
+        calcStatus = "ctof";
+        inputLabel.textContent = "Celsius(C°)";
+        outputLabel.textContent = "Farenheit(F°)";
+        inputArea1.value = outputArea.value;
+        ctof();
     }
 }
 
 conversionButton.addEventListener("click", () => {
-    // Perform other actions as needed
+    
     if (calcStatus == "ctof"){
         ctof();
     }else if(calcStatus == "ftoc"){
@@ -83,6 +98,8 @@ reverseButton.addEventListener("click",() => {
 resetButton.addEventListener("click", () => {
     const inputArea1 = document.getElementById("celsius");
     const outputArea = document.getElementById("farenheit");
+    const hasilArea = document.getElementById("hasil");
     inputArea1.value = ""
     outputArea.value = ""
+    hasilArea.value = ""
 })
