@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+</head>
+<body>
+    <div class = "wrapper">
+        <div class = "input">
+            <p class = "input-text">Masukkan suhu derajat celsius (C°) ke kotak dibawah, lalu
+                klik tombol konversi untuk mendapatkan hasil konversi dalam bentuk Farenheit (°F)
+            </p>
+            <label for="celsius">Celsius(C°): </label>
+            <br>
+            <textarea rows="10" cols="50" id="celsius" placeholder="Enter your text here"></textarea>
+            <div class="button-container">
+                <ul class="button-list">
+                  <button id="konversi">konversi</button>
+                  <button id="reset">reset</button>
+                  <button id="reverse">reverse</button>
+                </ul>
+            </div>
+            <label for="farenheit">Farenheit(F°): </label>
+            <textarea rows="10" cols="50" id="farenheit" placeholder="Enter your text here"></textarea>
+            <div class="kalkulasi">
+                <label for="hasil">Cara Kalkulasi: </label>
+                <textarea rows="10" cols="50" id="hasil" placeholder="Enter your text here"></textarea>
+            </div>
+            <p id="text-link">Farenheit ke Celsius</p>
+        </div> 
+        <div class="Explanation">
+            <p id="explanation"></p>
+        </div>
+    </div > 
+    <script src="js/index.js"></script>
+</body>
